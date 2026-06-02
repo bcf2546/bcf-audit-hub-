@@ -175,6 +175,7 @@ body.editing .type-pick{display:inline-block}
   </div>
 </div>
 <div class="toast" id="toast"></div>
+<button id="install">⤓ ติดตั้งเป็นแอป</button>
 
 <script>
 /* ============================================================================
@@ -191,7 +192,7 @@ const TYPE_LABEL={sheet:'Google Sheets',doc:'Google Docs',slide:'Google Slides',
 const TYPES=['sheet','doc','slide','pdf','folder','link'];
 const ARROW='<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>';
 
-let DATA=null, EDITING=false, ADMIN_KEY='';
+let DATA=null, EDITING=false, ADMIN_KEY='', CURRENT_TAB='overview';
 const main=document.getElementById('main'), tabsEl=document.getElementById('tabs'), qEl=document.getElementById('q');
 const toast=(m)=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);};
 const countFiles=a=>a.groups.reduce((n,g)=>n+g.items.length,0);
@@ -220,7 +221,7 @@ function render(){
     `</div>`+(EDITING?`<button class="add-btn" id="addAudit">+ เพิ่ม Audit ใหม่</button>`:'');
   main.appendChild(ov);
   ov.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{if(!EDITING)activate(b.dataset.go);});
-  if(EDITING)ov.querySelector('#addAudit').onclick=addAudit;
+  if(EDITING){const ab=ov.querySelector('#addAudit');if(ab)ab.onclick=addAudit;}
 
   DATA.audits.forEach((a,ai)=>{
     const p=document.createElement('section');p.className='panel';p.id='panel-'+a.id;
@@ -250,13 +251,14 @@ function render(){
   });
 
   bindEdit();
-  const cur=document.querySelector('.tab.active')?.dataset.target;
+  const cur=CURRENT_TAB;
   activate(DATA.audits.some(a=>a.id===cur)||cur==='overview'?cur:'overview');
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 function activate(id){
+  CURRENT_TAB=id;
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.target===id));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id));
   if(id!=='overview'&&qEl.value){qEl.value='';runSearch('');}
@@ -304,7 +306,8 @@ function setByPath(path,val){
 function addAudit(){
   const id='audit'+Date.now().toString(36);
   DATA.audits.push({id,name:'Audit ใหม่',desc:'',groups:[{label:'เอกสารหลัก',items:[]}]});
-  render();activate(id);
+  CURRENT_TAB=id;
+  render();
 }
 
 /* ---------- admin auth + save ---------- */
