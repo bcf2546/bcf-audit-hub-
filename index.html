@@ -232,7 +232,7 @@ function render(){
       h+=`<div class="group-label"><span class="editable" data-bind="group.${ai}.${gi}">${esc(g.label)}</span></div><div class="grid">`;
       g.items.forEach((it,ii)=>{
         const ic=ICONS[it.type]||ICONS.link;
-        h+=`<a class="card" ${EDITING?'':`href="${esc(it.url)}" target="_blank" rel="noopener"`} style="--ic:${ic.c}" data-name="${esc((it.name||'').toLowerCase())}">
+        h+=`<a class="card" ${EDITING?'':`href="${esc(normUrl(it.url))}" target="_blank" rel="noopener"`} style="--ic:${ic.c}" data-name="${esc((it.name||'').toLowerCase())}">
           <span class="ico">${ic.svg}</span>
           <span class="txt">
             <span class="name editable" data-bind="item.${ai}.${gi}.${ii}.name">${esc(it.name)}</span>
@@ -256,6 +256,21 @@ function render(){
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function normUrl(u){
+  u=String(u==null?'':u).trim();
+  if(!u)return '#';
+  // ซ่อมลิงก์เพี้ยน: ดึง https://... ที่อยู่กลางสตริงออกมา (เคส httphttps://, htthttps://...ps:// ฯลฯ)
+  let m=u.match(/https?:\/\/[^\s]*/i);
+  if(m){
+    let core=m[0];
+    // ตัดเศษ scheme ที่ไปต่อท้าย เช่น "://", "ps://", "s://"
+    core=core.replace(/(:\/\/|s:\/\/|ps:\/\/|tps:\/\/|tps?:\/\/)$/i,'');
+    core=core.replace(/:\/\/$/,'');
+    return core;
+  }
+  if(/^mailto:|^tel:/i.test(u))return u;
+  return 'https://'+u.replace(/^\/+/,'');
+}
 
 function activate(id){
   CURRENT_TAB=id;
