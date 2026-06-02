@@ -6,8 +6,6 @@
 <title>BCF Audit Hub — ศูนย์รวมเอกสารตรวจประเมิน</title>
 <meta name="description" content="ศูนย์รวมเอกสาร Audit ทั้งหมดของ Black Chicken Farm (Kanchanaburi)">
 <meta name="theme-color" content="#1565A0">
-
-<!-- Favicon / PWA -->
 <link rel="icon" href="icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="icons/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -15,91 +13,45 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Audit Hub">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-/* ============================================================
-   THEME
-   ============================================================ */
 :root{
-  --blue:#1565A0;        /* BCF brand blue */
-  --blue-deep:#0d2438;   /* page background */
-  --blue-mid:#143a5a;
-  --gold:#d9a441;
-  --gold-soft:#f0cb7d;
-  --ink:#eaf2fb;
-  --muted:#9db4cc;
-  --card:rgba(255,255,255,.045);
-  --card-line:rgba(255,255,255,.10);
-  --card-hover:rgba(217,164,65,.10);
-  --sheet:#1f8a5b; --doc:#3b7fe0; --slide:#e0a23b; --pdf:#d9534f; --folder:#c79a3a; --link:#7c8aa0;
-  --radius:18px;
-  --maxw:1080px;
+  --blue:#1565A0;--blue-deep:#0d2438;--blue-mid:#143a5a;
+  --gold:#d9a441;--gold-soft:#f0cb7d;--ink:#eaf2fb;--muted:#9db4cc;
+  --card:rgba(255,255,255,.045);--card-line:rgba(255,255,255,.10);--card-hover:rgba(217,164,65,.10);
+  --sheet:#1f8a5b;--doc:#3b7fe0;--slide:#e0a23b;--pdf:#d9534f;--folder:#c79a3a;--link:#7c8aa0;
+  --radius:18px;--maxw:1080px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'IBM Plex Sans Thai',system-ui,sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(1200px 700px at 80% -10%, rgba(21,101,160,.45), transparent 60%),
-    radial-gradient(900px 600px at -10% 110%, rgba(217,164,65,.10), transparent 55%),
-    var(--blue-deep);
-  min-height:100vh;
-  -webkit-font-smoothing:antialiased;
-  padding-bottom:env(safe-area-inset-bottom);
-}
+body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;color:var(--ink);
+  background:radial-gradient(1200px 700px at 80% -10%,rgba(21,101,160,.45),transparent 60%),
+    radial-gradient(900px 600px at -10% 110%,rgba(217,164,65,.10),transparent 55%),var(--blue-deep);
+  min-height:100vh;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-
-/* ---- Header ---- */
-header{padding:36px 0 8px;text-align:center;position:relative}
-.logo{
-  width:96px;height:96px;object-fit:contain;
-  filter:drop-shadow(0 6px 22px rgba(0,0,0,.45));
-  animation:drop .8s cubic-bezier(.2,.8,.2,1) both;
-}
+header{padding:38px 0 8px;text-align:center;position:relative}
+.logo{width:104px;height:104px;object-fit:contain;
+  filter:drop-shadow(0 8px 26px rgba(0,0,0,.5));animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
 @keyframes drop{from{opacity:0;transform:translateY(-14px) scale(.9)}to{opacity:1;transform:none}}
-h1{
-  font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.5px;
-  font-size:clamp(26px,5vw,40px);margin-top:14px;
-  background:linear-gradient(100deg,#fff 20%,var(--gold-soft) 60%,var(--gold));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+h1{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.5px;font-size:clamp(26px,5vw,40px);margin-top:16px;
+  background:linear-gradient(100deg,#fff 20%,var(--gold-soft) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{color:var(--muted);font-size:15px;margin-top:6px;font-weight:500}
-.rule{height:2px;width:120px;margin:18px auto 0;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:2px}
-
-/* ---- Search ---- */
+.rule{height:2px;width:120px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:2px}
 .search{position:relative;max-width:520px;margin:26px auto 8px}
-.search input{
-  width:100%;padding:14px 16px 14px 44px;border-radius:14px;
-  background:var(--card);border:1px solid var(--card-line);color:var(--ink);
-  font-family:inherit;font-size:15px;outline:none;transition:.2s;
-}
+.search input{width:100%;padding:14px 16px 14px 44px;border-radius:14px;background:var(--card);border:1px solid var(--card-line);
+  color:var(--ink);font-family:inherit;font-size:15px;outline:none;transition:.2s}
 .search input::placeholder{color:var(--muted)}
 .search input:focus{border-color:var(--gold);background:rgba(255,255,255,.07)}
 .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted)}
-
-/* ---- Tabs ---- */
 .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:22px 0 6px;padding:0 4px}
-.tab{
-  font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
-  padding:9px 18px;border-radius:999px;border:1px solid var(--card-line);
-  background:var(--card);color:var(--muted);transition:.18s;white-space:nowrap;
-}
+.tab{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;padding:9px 18px;border-radius:999px;
+  border:1px solid var(--card-line);background:var(--card);color:var(--muted);transition:.18s;white-space:nowrap}
 .tab:hover{color:var(--ink);border-color:rgba(217,164,65,.4)}
-.tab.active{
-  background:linear-gradient(120deg,var(--blue),var(--blue-mid));
-  color:#fff;border-color:var(--gold);box-shadow:0 4px 16px rgba(21,101,160,.4)
-}
+.tab.active{background:linear-gradient(120deg,var(--blue),var(--blue-mid));color:#fff;border-color:var(--gold);box-shadow:0 4px 16px rgba(21,101,160,.4)}
 .tab .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:7px;vertical-align:middle}
-
-/* ---- Sections ---- */
-main{padding:14px 0 60px}
+main{padding:14px 0 80px}
 .panel{display:none;animation:fade .35s ease both}
 .panel.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -107,305 +59,285 @@ main{padding:14px 0 60px}
 .panel-head h2{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff}
 .panel-head .meta{color:var(--muted);font-size:13px}
 .panel-desc{color:var(--muted);font-size:14px;margin:-6px 2px 18px;line-height:1.6}
-
-/* group label inside audit */
-.group-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--gold-soft);margin:22px 2px 10px;display:flex;align-items:center;gap:10px}
+.group-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);
+  margin:22px 2px 10px;display:flex;align-items:center;gap:10px}
 .group-label::after{content:"";flex:1;height:1px;background:var(--card-line)}
-
-/* ---- Cards ---- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.card{
-  display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;
-  background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius);
-  padding:15px 16px;transition:.18s;position:relative;overflow:hidden;
-}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--card-line);border-radius:var(--radius);padding:15px 16px;transition:.18s;position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ic,var(--blue));opacity:.85}
 .card:hover{transform:translateY(-3px);border-color:rgba(217,164,65,.45);background:var(--card-hover);box-shadow:0 10px 28px rgba(0,0,0,.35)}
-.card .ico{
-  flex:0 0 42px;height:42px;border-radius:11px;display:grid;place-items:center;
-  background:color-mix(in srgb,var(--ic) 18%,transparent);color:var(--ic);font-weight:800;font-size:11px;letter-spacing:.5px;
-}
+.card .ico{flex:0 0 42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--ic) 18%,transparent);color:var(--ic)}
 .card .ico svg{width:22px;height:22px}
 .card .txt{min-width:0;flex:1}
-.card .name{font-weight:600;font-size:15px;line-height:1.35;color:var(--ink);
-  display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .name{font-weight:600;font-size:15px;line-height:1.35;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .type{font-size:12px;color:var(--muted);margin-top:3px}
 .card .arrow{flex:0 0 auto;width:18px;height:18px;stroke:var(--muted);transition:.18s}
 .card:hover .arrow{stroke:var(--gold);transform:translate(2px,-2px)}
-
-/* overview audit cards */
 .ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.ov-card{
-  cursor:pointer;text-align:left;background:var(--card);border:1px solid var(--card-line);
-  border-radius:var(--radius);padding:20px;transition:.18s;font-family:inherit;color:inherit;
-}
+.ov-card{cursor:pointer;text-align:left;background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius);padding:20px;transition:.18s;font-family:inherit;color:inherit}
 .ov-card:hover{transform:translateY(-3px);border-color:rgba(217,164,65,.45);background:var(--card-hover);box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.ov-card .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--gold-soft);background:rgba(217,164,65,.12);padding:4px 10px;border-radius:8px;margin-bottom:12px}
+.ov-card .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold-soft);background:rgba(217,164,65,.12);padding:4px 10px;border-radius:8px;margin-bottom:12px}
 .ov-card h3{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
 .ov-card p{font-size:13.5px;color:var(--muted);line-height:1.55;min-height:42px}
-.ov-card .stat{margin-top:14px;font-size:13px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.ov-card .stat{margin-top:14px;font-size:13px;color:var(--ink)}
 .ov-card .stat b{color:var(--gold-soft)}
 .ov-card .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:6px}
 .ov-card .go svg{width:15px;height:15px;stroke:var(--gold);transition:.18s}
 .ov-card:hover .go svg{transform:translateX(4px)}
-
-.empty{text-align:center;color:var(--muted);padding:50px 20px;font-size:15px}
-
+.empty,.loading{text-align:center;color:var(--muted);padding:50px 20px;font-size:15px}
 footer{text-align:center;color:var(--muted);font-size:12.5px;padding:30px 0 36px;line-height:1.7}
 footer b{color:var(--gold-soft)}
-
-/* install hint */
 #install{display:none;position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
   background:linear-gradient(120deg,var(--blue),var(--blue-mid));color:#fff;border:1px solid var(--gold);
-  padding:11px 18px;border-radius:14px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:50;animation:fade .4s both}
-#install:hover{background:var(--blue-mid)}
-
-@media(max-width:560px){
-  .grid,.ov-grid{grid-template-columns:1fr}
-  header{padding-top:24px}
-}
+  padding:11px 18px;border-radius:14px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:50}
+/* ---- edit mode ---- */
+.admin-bar{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;gap:10px;align-items:center}
+.fab{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--gold);border-radius:14px;
+  padding:11px 16px;background:linear-gradient(120deg,var(--blue),var(--blue-mid));color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:.18s}
+.fab:hover{background:var(--blue-mid)}
+.fab.save{background:linear-gradient(120deg,var(--gold),#c08a2a);border-color:var(--gold-soft);color:#2a1c00}
+.fab.ghost{background:rgba(255,255,255,.06)}
+body.editing{outline:3px solid var(--gold);outline-offset:-3px}
+.edit-badge{display:none;position:fixed;left:18px;bottom:20px;z-index:60;font-size:12.5px;font-weight:700;color:#2a1c00;
+  background:var(--gold);padding:7px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+body.editing .edit-badge{display:block}
+.editable[contenteditable]{outline:1px dashed transparent;border-radius:6px;transition:.15s}
+body.editing .editable[contenteditable]{outline-color:rgba(217,164,65,.5);cursor:text;padding:1px 4px;margin:0 -4px}
+body.editing .editable:focus{outline-color:var(--gold);background:rgba(217,164,65,.08)}
+.row-actions{display:none}
+body.editing .row-actions{display:flex;gap:6px;flex:0 0 auto}
+.icobtn{width:30px;height:30px;border-radius:9px;border:1px solid var(--card-line);background:rgba(255,255,255,.05);
+  color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:15px;transition:.15s}
+.icobtn:hover{color:#fff;border-color:var(--gold)}
+.icobtn.del:hover{color:#ff7a7a;border-color:#ff7a7a}
+.add-btn{display:none;margin-top:10px;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  border:1px dashed var(--card-line);background:transparent;color:var(--gold-soft);padding:10px 16px;border-radius:12px;transition:.15s}
+body.editing .add-btn{display:inline-block}
+.add-btn:hover{border-color:var(--gold);background:rgba(217,164,65,.08)}
+body.editing .card{cursor:default}
+body.editing .card .arrow{display:none}
+.type-pick{display:none;font-family:inherit;font-size:12px;background:rgba(0,0,0,.3);color:var(--ink);
+  border:1px solid var(--card-line);border-radius:8px;padding:4px 6px;margin-top:4px}
+body.editing .type-pick{display:inline-block}
+/* modal */
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(5,15,28,.7);backdrop-filter:blur(4px);place-items:center;padding:20px}
+.modal.show{display:grid}
+.modal .box{background:var(--blue-deep);border:1px solid var(--gold);border-radius:18px;padding:26px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.modal h3{font-family:'Sora',sans-serif;font-size:19px;color:#fff;margin-bottom:6px}
+.modal p{color:var(--muted);font-size:13.5px;margin-bottom:16px;line-height:1.5}
+.modal input{width:100%;padding:12px 14px;border-radius:11px;background:var(--card);border:1px solid var(--card-line);color:var(--ink);font-family:inherit;font-size:15px;outline:none;margin-bottom:14px}
+.modal input:focus{border-color:var(--gold)}
+.modal .btns{display:flex;gap:10px;justify-content:flex-end}
+.modal button{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:11px;padding:10px 18px;border:1px solid var(--card-line);background:var(--card);color:var(--ink)}
+.modal button.primary{background:linear-gradient(120deg,var(--gold),#c08a2a);border-color:var(--gold-soft);color:#2a1c00}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--blue-mid);color:#fff;border:1px solid var(--gold);
+  padding:12px 20px;border-radius:12px;font-size:14px;font-weight:600;z-index:120;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:560px){.grid,.ov-grid{grid-template-columns:1fr}header{padding-top:24px}}
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header>
     <img class="logo" src="icons/bcf-logo.png" alt="Black Chicken Farm">
-    <h1 id="siteTitle">BCF Audit Hub</h1>
-    <p class="sub" id="siteSub">ศูนย์รวมเอกสารตรวจประเมิน · Black Chicken Farm (Kanchanaburi)</p>
+    <h1 id="siteTitle" class="editable">BCF Audit Hub</h1>
+    <p class="sub editable" id="siteSub">ศูนย์รวมเอกสารตรวจประเมิน · Black Chicken Farm (Kanchanaburi)</p>
     <div class="rule"></div>
-
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
       <input id="q" type="search" placeholder="ค้นหาเอกสาร… (พิมพ์ชื่อไฟล์)" autocomplete="off">
     </div>
-
     <nav class="tabs" id="tabs"></nav>
   </header>
-
-  <main id="main"></main>
-
+  <main id="main"><div class="loading">กำลังโหลดข้อมูล…</div></main>
   <footer>
     <b>Black Chicken Farm (Kanchanaburi)</b> · Since 2003<br>
     หน้านี้เก็บเฉพาะลิงก์ — ข้อมูลจริงอยู่ใน Google Drive และคุมสิทธิ์ด้วยบัญชี Google เท่านั้น
   </footer>
 </div>
 
-<button id="install">⤓ ติดตั้งเป็นแอป</button>
+<div class="edit-badge">● โหมดแก้ไข</div>
+<div class="admin-bar" id="adminBar">
+  <button class="fab" id="editBtn">✎ แก้ไข</button>
+</div>
+
+<div class="modal" id="keyModal">
+  <div class="box">
+    <h3>เข้าโหมดแก้ไข</h3>
+    <p>ใส่รหัสผู้ดูแลเพื่อแก้ไข เพิ่ม หรือลบลิงก์</p>
+    <input id="keyInput" type="password" placeholder="admin key" autocomplete="off">
+    <div class="btns">
+      <button id="keyCancel">ยกเลิก</button>
+      <button class="primary" id="keyOk">เข้าสู่ระบบ</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
 
 <script>
 /* ============================================================================
- *  ▼▼▼  แก้ตรงนี้ที่เดียวพอ — ส่วนอื่นไม่ต้องแตะ  ▼▼▼
- * ============================================================================
- *
- *  วิธีเพิ่ม / แก้ audit:
- *   - แต่ละ audit คือหนึ่ง object ใน AUDITS[]
- *   - id      : ใช้ภายใน (ภาษาอังกฤษ ไม่เว้นวรรค) — ใช้ทำลิงก์ #id ด้วย
- *   - name    : ชื่อที่โชว์บนแท็บ
- *   - desc    : คำอธิบายสั้นๆ (โชว์ในหน้าภาพรวม)
- *   - groups[]: จัดกลุ่มไฟล์ (เช่น "เอกสารหลัก", "บันทึก", "รูปถ่าย")
- *               ถ้าไม่อยากแบ่งกลุ่ม ใส่กลุ่มเดียวก็ได้
- *
- *  วิธีเพิ่มไฟล์ในกลุ่ม (items[]):
- *   { name:"ชื่อไฟล์", type:"sheet", url:"https://..." }
- *   type ที่รองรับ:  sheet | doc | slide | pdf | folder | link
- *
- *  ไฟล์เดียวใช้ได้หลาย audit — แค่ก็อปบรรทัดนั้นไปวางใน audit อื่นได้เลย
- *  (ไม่ได้ทำสำเนาข้อมูลจริง แค่ลิงก์เดิม)
+ *  ▼▼▼ ตั้งค่าตรงนี้ที่เดียว ▼▼▼
  * ========================================================================== */
-
-const SITE = {
-  title: "BCF Audit Hub",
-  subtitle: "ศูนย์รวมเอกสารตรวจประเมิน · Black Chicken Farm (Kanchanaburi)"
-};
-
-const AUDITS = [
-  {
-    id: "nuaanamai",
-    name: "เนื้ออนามัย",
-    desc: "มาตรฐานเนื้อสัตว์อนามัย — เอกสารต่ออายุใบรับรอง",
-    groups: [
-      {
-        label: "เอกสารหลัก",
-        items: [
-          { name:"แบบฟอร์มขอต่ออายุ เนื้ออนามัย", type:"doc",   url:"https://docs.google.com/document/d/REPLACE_ME/edit" },
-          { name:"ตารางบันทึกอุณหภูมิห้องเย็น",     type:"sheet", url:"https://docs.google.com/spreadsheets/d/REPLACE_ME/edit" },
-          { name:"สไลด์นำเสนอ เนื้ออนามัย 2569",    type:"slide", url:"https://docs.google.com/presentation/d/REPLACE_ME/edit" },
-        ]
-      },
-      {
-        label: "หลักฐานประกอบ",
-        items: [
-          { name:"รูปถ่ายโรงเรือน & พื้นที่ผลิต", type:"folder", url:"https://drive.google.com/drive/folders/REPLACE_ME" },
-          { name:"ใบรับรองฉบับเดิม (PDF)",        type:"pdf",    url:"https://drive.google.com/file/d/REPLACE_ME/view" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "gmp",
-    name: "GMP",
-    desc: "Good Manufacturing Practice — สุขลักษณะการผลิตที่ดี",
-    groups: [
-      {
-        label: "เอกสารหลัก",
-        items: [
-          { name:"คู่มือ GMP โรงงาน",          type:"doc",   url:"https://docs.google.com/document/d/REPLACE_ME/edit" },
-          { name:"แผนผังโรงงาน (Factory Plan)", type:"link",  url:"https://example.com/REPLACE_ME" },
-          { name:"บันทึกการทำความสะอาด",        type:"sheet", url:"https://docs.google.com/spreadsheets/d/REPLACE_ME/edit" },
-        ]
-      },
-      {
-        label: "ใช้ร่วมกับ เนื้ออนามัย",
-        items: [
-          { name:"ตารางบันทึกอุณหภูมิห้องเย็น", type:"sheet", url:"https://docs.google.com/spreadsheets/d/REPLACE_ME/edit" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "haccp",
-    name: "HACCP",
-    desc: "การวิเคราะห์อันตรายและจุดวิกฤตที่ต้องควบคุม",
-    groups: [
-      {
-        label: "เอกสารหลัก",
-        items: [
-          { name:"HACCP Plan",                   type:"sheet", url:"https://docs.google.com/spreadsheets/d/REPLACE_ME/edit" },
-          { name:"แผนผังกระบวนการผลิต (Flow)",   type:"doc",   url:"https://docs.google.com/document/d/REPLACE_ME/edit" },
-          { name:"บันทึก CCP Monitoring",        type:"sheet", url:"https://docs.google.com/spreadsheets/d/REPLACE_ME/edit" },
-        ]
-      }
-    ]
-  }
-];
-
+// วาง URL ของ Apps Script Web app ที่ deploy แล้ว (ดูใน README)
+const API_URL = 'https://script.google.com/macros/s/AKfycbwjX5DGoL5DENGtE59kC7T9nL9xJS2-zMcFbHJ-EW9CzChKVLpix-g2OCRcpY4X22ye/exec';
 /* ============================================================================
- *  ▲▲▲  จบส่วนที่ต้องแก้  ▲▲▲   (ด้านล่างเป็นโค้ดระบบ ไม่ต้องแก้)
+ *  ▲▲▲ จบส่วนตั้งค่า ▲▲▲
  * ========================================================================== */
 
-const ICONS = {
-  sheet:{c:'var(--sheet)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>'},
-  doc:{c:'var(--doc)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/></svg>'},
-  slide:{c:'var(--slide)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>'},
-  pdf:{c:'var(--pdf)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><text x="12" y="18" font-size="6" fill="currentColor" stroke="none" text-anchor="middle" font-family="sans-serif" font-weight="700">PDF</text></svg>'},
-  folder:{c:'var(--folder)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/></svg>'},
-  link:{c:'var(--link)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'}
-};
-const TYPE_LABEL = {sheet:'Google Sheets',doc:'Google Docs',slide:'Google Slides',pdf:'ไฟล์ PDF',folder:'โฟลเดอร์ Drive',link:'ลิงก์'};
-const ARROW = '<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+const ICONS={sheet:{c:'var(--sheet)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>'},doc:{c:'var(--doc)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/></svg>'},slide:{c:'var(--slide)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>'},pdf:{c:'var(--pdf)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>'},folder:{c:'var(--folder)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/></svg>'},link:{c:'var(--link)',svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'}};
+const TYPE_LABEL={sheet:'Google Sheets',doc:'Google Docs',slide:'Google Slides',pdf:'ไฟล์ PDF',folder:'โฟลเดอร์ Drive',link:'ลิงก์'};
+const TYPES=['sheet','doc','slide','pdf','folder','link'];
+const ARROW='<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>';
 
-document.getElementById('siteTitle').textContent = SITE.title;
-document.getElementById('siteSub').textContent = SITE.subtitle;
-document.title = SITE.title + ' — ศูนย์รวมเอกสารตรวจประเมิน';
+let DATA=null, EDITING=false, ADMIN_KEY='';
+const main=document.getElementById('main'), tabsEl=document.getElementById('tabs'), qEl=document.getElementById('q');
+const toast=(m)=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);};
+const countFiles=a=>a.groups.reduce((n,g)=>n+g.items.length,0);
 
-const tabsEl = document.getElementById('tabs');
-const mainEl = document.getElementById('main');
-const qEl = document.getElementById('q');
-
-function countFiles(a){return a.groups.reduce((n,g)=>n+g.items.length,0);}
-
-// build tabs
-function tabBtn(id,label,dot){
-  const b=document.createElement('button');
-  b.className='tab';b.dataset.target=id;
-  b.innerHTML=(dot?'<span class="dot"></span>':'')+label;
-  b.onclick=()=>activate(id);
-  return b;
+async function loadData(){
+  try{
+    const r=await fetch(API_URL+'?action=load');
+    const j=await r.json();
+    if(j.ok){DATA=j.data;render();}
+    else{main.innerHTML='<div class="empty">โหลดข้อมูลไม่สำเร็จ</div>';}
+  }catch(e){main.innerHTML='<div class="empty">เชื่อมต่อ backend ไม่ได้ — ตรวจสอบ API_URL ใน index.html</div>';}
 }
-tabsEl.appendChild(tabBtn('overview','ภาพรวม',false));
-AUDITS.forEach(a=>tabsEl.appendChild(tabBtn(a.id,a.name,true)));
 
-// overview panel
-const ov=document.createElement('section');
-ov.className='panel';ov.id='panel-overview';
-ov.innerHTML=`<div class="panel-head"><h2>ภาพรวม Audit ทั้งหมด</h2><span class="meta">${AUDITS.length} รายการตรวจประเมิน</span></div>
-<div class="ov-grid">`+AUDITS.map(a=>`
-  <button class="ov-card" data-go="${a.id}">
-    <span class="badge">${a.name}</span>
-    <h3>${a.name}</h3>
-    <p>${a.desc||''}</p>
-    <div class="stat"><b>${countFiles(a)}</b> ไฟล์ · ${a.groups.length} กลุ่ม</div>
-    <div class="go">เปิดดูเอกสาร <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-  </button>`).join('')+`</div>`;
-mainEl.appendChild(ov);
-ov.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>activate(b.dataset.go));
+function render(){
+  document.getElementById('siteTitle').textContent=DATA.site.title;
+  document.getElementById('siteSub').textContent=DATA.site.subtitle;
+  document.title=DATA.site.title+' — ศูนย์รวมเอกสารตรวจประเมิน';
+  tabsEl.innerHTML=''; main.innerHTML='';
+  const mkTab=(id,label,dot)=>{const b=document.createElement('button');b.className='tab';b.dataset.target=id;b.innerHTML=(dot?'<span class="dot"></span>':'')+label;b.onclick=()=>activate(id);return b;};
+  tabsEl.appendChild(mkTab('overview','ภาพรวม',false));
+  DATA.audits.forEach(a=>tabsEl.appendChild(mkTab(a.id,a.name,true)));
 
-// audit panels
-AUDITS.forEach(a=>{
-  const p=document.createElement('section');
-  p.className='panel';p.id='panel-'+a.id;
-  let html=`<div class="panel-head"><h2>${a.name}</h2><span class="meta">${countFiles(a)} ไฟล์</span></div>`;
-  if(a.desc) html+=`<p class="panel-desc">${a.desc}</p>`;
-  a.groups.forEach(g=>{
-    html+=`<div class="group-label">${g.label}</div><div class="grid">`;
-    g.items.forEach(it=>{
-      const ic=ICONS[it.type]||ICONS.link;
-      html+=`<a class="card" href="${it.url}" target="_blank" rel="noopener" style="--ic:${ic.c}" data-name="${(it.name||'').toLowerCase()}">
-        <span class="ico">${ic.svg}</span>
-        <span class="txt"><span class="name">${it.name}</span><span class="type">${TYPE_LABEL[it.type]||'ลิงก์'}</span></span>
-        ${ARROW}</a>`;
+  const ov=document.createElement('section');ov.className='panel';ov.id='panel-overview';
+  ov.innerHTML=`<div class="panel-head"><h2>ภาพรวม Audit ทั้งหมด</h2><span class="meta">${DATA.audits.length} รายการตรวจประเมิน</span></div><div class="ov-grid">`+
+    DATA.audits.map(a=>`<button class="ov-card" data-go="${a.id}"><span class="badge">${esc(a.name)}</span><h3>${esc(a.name)}</h3><p>${esc(a.desc||'')}</p><div class="stat"><b>${countFiles(a)}</b> ไฟล์ · ${a.groups.length} กลุ่ม</div><div class="go">เปิดดูเอกสาร <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></button>`).join('')+
+    `</div>`+(EDITING?`<button class="add-btn" id="addAudit">+ เพิ่ม Audit ใหม่</button>`:'');
+  main.appendChild(ov);
+  ov.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{if(!EDITING)activate(b.dataset.go);});
+  if(EDITING)ov.querySelector('#addAudit').onclick=addAudit;
+
+  DATA.audits.forEach((a,ai)=>{
+    const p=document.createElement('section');p.className='panel';p.id='panel-'+a.id;
+    let h=`<div class="panel-head"><h2 class="editable" data-bind="audit.${ai}.name">${esc(a.name)}</h2><span class="meta">${countFiles(a)} ไฟล์</span>`;
+    if(EDITING)h+=`<button class="icobtn del" title="ลบ audit นี้" data-delaudit="${ai}">🗑</button>`;
+    h+=`</div><p class="panel-desc editable" data-bind="audit.${ai}.desc">${esc(a.desc||'')}</p>`;
+    a.groups.forEach((g,gi)=>{
+      h+=`<div class="group-label"><span class="editable" data-bind="group.${ai}.${gi}">${esc(g.label)}</span></div><div class="grid">`;
+      g.items.forEach((it,ii)=>{
+        const ic=ICONS[it.type]||ICONS.link;
+        h+=`<a class="card" ${EDITING?'':`href="${esc(it.url)}" target="_blank" rel="noopener"`} style="--ic:${ic.c}" data-name="${esc((it.name||'').toLowerCase())}">
+          <span class="ico">${ic.svg}</span>
+          <span class="txt">
+            <span class="name editable" data-bind="item.${ai}.${gi}.${ii}.name">${esc(it.name)}</span>
+            <span class="type editable" data-bind="item.${ai}.${gi}.${ii}.url" ${EDITING?'':'hidden'} style="word-break:break-all">${EDITING?esc(it.url):''}</span>
+            <span class="type" ${EDITING?'hidden':''}>${TYPE_LABEL[it.type]||'ลิงก์'}</span>
+            ${EDITING?`<select class="type-pick" data-type="${ai}.${gi}.${ii}">${TYPES.map(t=>`<option value="${t}"${t===it.type?' selected':''}>${TYPE_LABEL[t]}</option>`).join('')}</select>`:''}
+          </span>
+          ${EDITING?`<span class="row-actions"><button class="icobtn del" data-delitem="${ai}.${gi}.${ii}">🗑</button></span>`:ARROW}
+        </a>`;
+      });
+      h+=`</div>`;
+      if(EDITING)h+=`<button class="add-btn" data-additem="${ai}.${gi}">+ เพิ่มไฟล์</button>`;
     });
-    html+=`</div>`;
+    if(EDITING)h+=`<div style="margin-top:14px"><button class="add-btn" data-addgroup="${ai}">+ เพิ่มกลุ่ม</button></div>`;
+    p.innerHTML=h;main.appendChild(p);
   });
-  p.innerHTML=html;
-  mainEl.appendChild(p);
-});
+
+  bindEdit();
+  const cur=document.querySelector('.tab.active')?.dataset.target;
+  activate(DATA.audits.some(a=>a.id===cur)||cur==='overview'?cur:'overview');
+}
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 function activate(id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.target===id));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id));
-  history.replaceState(null,'','#'+id);
-  if(id!=='overview' && qEl.value) {qEl.value='';runSearch('');}
+  if(id!=='overview'&&qEl.value){qEl.value='';runSearch('');}
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// search across everything
 function runSearch(term){
   term=term.trim().toLowerCase();
-  if(!term){ // restore
-    document.querySelectorAll('.card').forEach(c=>c.style.display='');
-    document.querySelectorAll('.group-label').forEach(g=>g.style.display='');
-    const cur=document.querySelector('.tab.active')?.dataset.target||'overview';
-    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+cur));
-    return;
-  }
-  // show all audit panels, hide overview, filter cards
-  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id!=='panel-overview'));
+  if(EDITING)return;
+  if(!term){document.querySelectorAll('.card').forEach(c=>c.style.display='');document.querySelectorAll('.group-label').forEach(g=>g.style.display='');
+    const cur=document.querySelector('.tab.active')?.dataset.target||'overview';document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+cur));return;}
   document.querySelectorAll('.panel').forEach(p=>{
-    if(p.id==='panel-overview')return;
+    if(p.id==='panel-overview'){p.classList.remove('active');p.style.display='none';return;}
     let any=false;
-    p.querySelectorAll('.grid').forEach(grid=>{
-      let g=false;
-      grid.querySelectorAll('.card').forEach(c=>{
-        const hit=c.dataset.name.includes(term);
-        c.style.display=hit?'':'none'; if(hit){g=true;any=true;}
-      });
-      const lbl=grid.previousElementSibling;
-      if(lbl&&lbl.classList.contains('group-label')) lbl.style.display=g?'':'none';
-    });
-    p.style.display=any?'':'none';
-    p.classList.toggle('active',any);
+    p.querySelectorAll('.grid').forEach(grid=>{let g=false;grid.querySelectorAll('.card').forEach(c=>{const hit=c.dataset.name.includes(term);c.style.display=hit?'':'none';if(hit){g=true;any=true;}});
+      const lbl=grid.previousElementSibling;if(lbl&&lbl.classList.contains('group-label'))lbl.style.display=g?'':'none';});
+    p.style.display=any?'':'none';p.classList.toggle('active',any);
   });
 }
 qEl.addEventListener('input',e=>runSearch(e.target.value));
 
-// initial route
-const start=(location.hash||'').replace('#','');
-activate(AUDITS.some(a=>a.id===start)||start==='overview'?start:'overview');
-
-// ---- PWA ----
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+/* ---------- editing ---------- */
+function bindEdit(){
+  if(!EDITING)return;
+  document.querySelectorAll('.editable[data-bind]').forEach(el=>{
+    el.setAttribute('contenteditable','true');
+    el.onblur=()=>{setByPath(el.dataset.bind,el.textContent.trim());};
+  });
+  document.getElementById('siteTitle').setAttribute('contenteditable','true');
+  document.getElementById('siteSub').setAttribute('contenteditable','true');
+  document.getElementById('siteTitle').onblur=e=>DATA.site.title=e.target.textContent.trim();
+  document.getElementById('siteSub').onblur=e=>DATA.site.subtitle=e.target.textContent.trim();
+  document.querySelectorAll('.type-pick').forEach(s=>{const[ai,gi,ii]=s.dataset.type.split('.').map(Number);s.onchange=()=>{DATA.audits[ai].groups[gi].items[ii].type=s.value;render();};});
+  document.querySelectorAll('[data-delitem]').forEach(b=>b.onclick=e=>{e.preventDefault();const[ai,gi,ii]=b.dataset.delitem.split('.').map(Number);DATA.audits[ai].groups[gi].items.splice(ii,1);render();});
+  document.querySelectorAll('[data-additem]').forEach(b=>b.onclick=()=>{const[ai,gi]=b.dataset.additem.split('.').map(Number);DATA.audits[ai].groups[gi].items.push({name:'ไฟล์ใหม่',type:'link',url:'https://'});render();});
+  document.querySelectorAll('[data-addgroup]').forEach(b=>b.onclick=()=>{const ai=+b.dataset.addgroup;DATA.audits[ai].groups.push({label:'กลุ่มใหม่',items:[]});render();});
+  document.querySelectorAll('[data-delaudit]').forEach(b=>b.onclick=()=>{if(confirm('ลบ audit นี้ทั้งหมด?')){DATA.audits.splice(+b.dataset.delaudit,1);render();}});
 }
-let deferred;
-const installBtn=document.getElementById('install');
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;installBtn.style.display='block';});
-installBtn.onclick=async()=>{installBtn.style.display='none';if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;}};
-window.addEventListener('appinstalled',()=>installBtn.style.display='none');
+function setByPath(path,val){
+  const p=path.split('.');
+  if(p[0]==='audit'){const a=DATA.audits[+p[1]];if(p[2]==='name')a.name=val;else if(p[2]==='desc')a.desc=val;}
+  else if(p[0]==='group'){DATA.audits[+p[1]].groups[+p[2]].label=val;}
+  else if(p[0]==='item'){const it=DATA.audits[+p[1]].groups[+p[2]].items[+p[3]];it[p[4]]=val;}
+}
+function addAudit(){
+  const id='audit'+Date.now().toString(36);
+  DATA.audits.push({id,name:'Audit ใหม่',desc:'',groups:[{label:'เอกสารหลัก',items:[]}]});
+  render();activate(id);
+}
+
+/* ---------- admin auth + save ---------- */
+const keyModal=document.getElementById('keyModal');
+document.getElementById('editBtn').onclick=()=>{keyModal.classList.add('show');document.getElementById('keyInput').focus();};
+document.getElementById('keyCancel').onclick=()=>keyModal.classList.remove('show');
+document.getElementById('keyOk').onclick=()=>{const k=document.getElementById('keyInput').value;if(!k)return;ADMIN_KEY=k;keyModal.classList.remove('show');enterEdit();};
+document.getElementById('keyInput').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('keyOk').click();});
+
+function enterEdit(){
+  EDITING=true;document.body.classList.add('editing');
+  document.getElementById('adminBar').innerHTML=`<button class="fab ghost" id="cancelEdit">ออก</button><button class="fab save" id="saveBtn">💾 บันทึก</button>`;
+  document.getElementById('saveBtn').onclick=save;
+  document.getElementById('cancelEdit').onclick=()=>location.reload();
+  render();
+}
+async function save(){
+  document.querySelectorAll('.editable[contenteditable]').forEach(el=>el.blur());
+  const btn=document.getElementById('saveBtn');btn.textContent='กำลังบันทึก…';
+  try{
+    const r=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'save',key:ADMIN_KEY,data:DATA})});
+    const j=await r.json();
+    if(j.ok){toast('บันทึกแล้ว ✓');btn.textContent='💾 บันทึก';}
+    else{toast(j.error==='invalid key'?'รหัสไม่ถูกต้อง':'บันทึกไม่สำเร็จ');btn.textContent='💾 บันทึก';}
+  }catch(e){toast('เชื่อมต่อไม่ได้');btn.textContent='💾 บันทึก';}
+}
+
+loadData();
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+let deferred;const ib=document.getElementById('install');
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;ib.style.display='block';});
+ib.onclick=async()=>{ib.style.display='none';if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;}};
 </script>
 </body>
 </html>
