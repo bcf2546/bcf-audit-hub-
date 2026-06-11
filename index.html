@@ -229,7 +229,7 @@ function render(){
     if(EDITING)h+=`<button class="icobtn del" title="ลบ audit นี้" data-delaudit="${ai}">🗑</button>`;
     h+=`</div><p class="panel-desc editable" data-bind="audit.${ai}.desc">${esc(a.desc||'')}</p>`;
     a.groups.forEach((g,gi)=>{
-      h+=`<div class="group-label"><span class="editable" data-bind="group.${ai}.${gi}">${esc(g.label)}</span></div><div class="grid">`;
+      h+=`<div class="group-label"><span class="editable" data-bind="group.${ai}.${gi}">${esc(g.label)}</span>${EDITING?`<button class="icobtn del" data-delgroup="${ai}.${gi}" title="ลบกลุ่มนี้">🗑</button>`:''}</div><div class="grid">`;
       g.items.forEach((it,ii)=>{
         const ic=ICONS[it.type]||ICONS.link;
         h+=`<a class="card" ${EDITING?'':`href="${esc(normUrl(it.url))}" target="_blank" rel="noopener"`} style="--ic:${ic.c}" data-name="${esc((it.name||'').toLowerCase())}">
@@ -310,6 +310,7 @@ function bindEdit(){
   document.querySelectorAll('[data-delitem]').forEach(b=>b.onclick=e=>{e.preventDefault();const[ai,gi,ii]=b.dataset.delitem.split('.').map(Number);DATA.audits[ai].groups[gi].items.splice(ii,1);render();});
   document.querySelectorAll('[data-additem]').forEach(b=>b.onclick=()=>{const[ai,gi]=b.dataset.additem.split('.').map(Number);DATA.audits[ai].groups[gi].items.push({name:'ไฟล์ใหม่',type:'link',url:'https://'});render();});
   document.querySelectorAll('[data-addgroup]').forEach(b=>b.onclick=()=>{const ai=+b.dataset.addgroup;DATA.audits[ai].groups.push({label:'กลุ่มใหม่',items:[]});render();});
+  document.querySelectorAll('[data-delgroup]').forEach(b=>b.onclick=()=>{const[ai,gi]=b.dataset.delgroup.split('.').map(Number);const g=DATA.audits[ai].groups[gi];if(confirm('ลบกลุ่ม "'+g.label+'" และไฟล์ '+g.items.length+' รายการในนั้น?')){DATA.audits[ai].groups.splice(gi,1);render();}});
   document.querySelectorAll('[data-delaudit]').forEach(b=>b.onclick=()=>{if(confirm('ลบ audit นี้ทั้งหมด?')){DATA.audits.splice(+b.dataset.delaudit,1);render();}});
 }
 function setByPath(path,val){

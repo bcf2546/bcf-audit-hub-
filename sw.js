@@ -1,6 +1,6 @@
 // BCF Audit Hub — Service Worker
 // Bump CACHE version whenever you change index.html or icons to force update.
-const CACHE = 'bcf-audit-v5';
+const CACHE = 'bcf-audit-v6';
 const ASSETS = [
   './',
   './index.html',
